@@ -34,21 +34,10 @@ Runs like a typical express app:
     node app.js
 
 ### Install on RPI init.d
-* Create directory /opt/node/apps
-
-    sudo mkdir -p /opt/node/apps && sudo chown -R pi:pi /opt/node/apps
-
-* Clone git repository into /opt/node/apps
-
-    cd /opt/node/apps && git clone https://github.com/ryarnyah/nodejs-rpi-controller.git
-
-* Install dependencies
-
-    cd nodejs-rpi-controller && npm install && bower install
-
-* Create nodejs-rpi-controller startup script
-
-    nano /etc/init.d/nodejs-rpi-controller-startup.sh
+* Create directory /opt/node/apps `sudo mkdir -p /opt/node/apps && sudo chown -R pi:pi /opt/node/apps`
+* Clone git repository into /opt/node/apps `cd /opt/node/apps && git clone https://github.com/ryarnyah/nodejs-rpi-controller.git`
+* Install dependencies `cd nodejs-rpi-controller && npm install && bower install`
+* Create nodejs-rpi-controller startup script `nano /etc/init.d/nodejs-rpi-controller-startup.sh`
 
 Paste this:
 
