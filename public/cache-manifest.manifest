@@ -1,0 +1,28 @@
+CACHE MANIFEST
+ 
+# v0.1
+ 
+CACHE:
+partials/shutdown
+partials/info
+partials/uptime
+partials/load
+partials/mem
+partials/mounts
+partials/network
+partials/ps
+js/lib/angular/angular.min.js
+js/lib/bootstrap/dist/css/bootstrap.min.css
+js/lib/angular-route/angular-route.min.js
+js/lib/angular-resource/angular-resource.min.js
+js/lib/jquery/jquery.min.js
+js/lib/bootstrap/dist/js/bootstrap.min.js
+js/app.js
+js/services.js
+js/controllers.js
+js/filters.js
+js/directives.js
+css/app.css
+
+NETWORK:
+*
