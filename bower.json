@@ -1,0 +1,24 @@
+{
+  "name": "nodejs-controller",
+  "version": "0.0.1",
+  "homepage": "none",
+  "description": "NodeJs Raspberry Controller",
+  "main": "public/js/app.js",
+  "directory": "public/js/lib",
+  "keywords": [
+    "nodejs",
+    "rapsberry"
+  ],
+  "authors": [
+    "Ryar Nyah"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "public/js/lib",
+    "test",
+    "tests"
+  ]
+}
