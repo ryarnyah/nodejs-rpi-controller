@@ -1,23 +1,31 @@
-# Angular Express Seed
+# NodeJS AngularJS RPI Controller
 
-Start an awesome app with AngularJS on the front, Express + Node on the back. This project is an
-application skeleton for a typical [AngularJS](http://angularjs.org/) web app for those who want
-to use Node to serve their app.
+NodeJS RPI Controller have the following API:
+* /api/info
+	Return info about the RPI
+* /api/uptime
+	Return the RPI uptime
+* /api/load
+	Return the RPI load average
+* /api/mem
+	Return the RPI memory status
+* /api/mounts
+	Return the RPI mount points
+* /api/network
+	Return the RPI network interfaces
+* /api/shutdown
+	Shutdown the RPI
+* /api/reboot
+	Reboot the RPI
 
-The seed contains angular libraries, test libraries and a bunch of scripts all preconfigured for
-instant web development gratification. Just clone the repo (or download the zip/tarball) and
-you're ready to develop your application.
+## Install
 
-The seed app shows how to wire together Angular client-side components with Express on the server.
-It also illustrates writing angular partials/views with the Jade templating library.
+Pre-requisite:
+* Node JS
+* NPM
+* Bower (npm install -g bower)
 
-_Note: Although Jade supports interpolation, you should be doing that mostly on the client. Mixing
-server and browser templating will convolute your app. Instead, use Jade as a syntactic sugar for
-HTML, and let AngularJS take care of interpolation on the browser side._
-
-## How to use angular-express-seed
-
-Clone the angular-express-seed repository, run `npm install` to grab the dependencies, and start hacking!
+Clone the nodejs-rpi-controller repository, run `npm install && bower install` to grab the dependencies!
 
 ### Running the app
 
@@ -25,57 +33,39 @@ Runs like a typical express app:
 
     node app.js
 
-### Running tests
-
-Coming soon!
-
-### Receiving updates from upstream
-
-Just fetch the changes and merge them into your project with git.
-
-
-## Directory Layout
-    
-    app.js              --> app config
-    package.json        --> for npm
-    public/             --> all of the files to be used in on the client side
-      css/              --> css files
-        app.css         --> default stylesheet
-      img/              --> image files
-      js/               --> javascript files
-        app.js          --> declare top-level app module
-        controllers.js  --> application controllers
-        directives.js   --> custom angular directives
-        filters.js      --> custom angular filters
-        services.js     --> custom angular services
-        lib/            --> angular and 3rd party JavaScript libraries
-          angular/
-            angular.js            --> the latest angular js
-            angular.min.js        --> the latest minified angular js
-            angular-*.js          --> angular add-on modules
-            version.txt           --> version number
-    routes/
-      api.js            --> route for serving JSON
-      index.js          --> route for serving HTML pages and partials
-    views/
-      index.jade        --> main page for app
-      layout.jade       --> doctype, title, head boilerplate
-      partials/         --> angular view partials (partial jade templates)
-        partial1.jade
-        partial2.jade
-
-
-
-## Example App
-
-A simple [blog](https://github.com/btford/angular-express-blog) based on this seed.
-
-
-## Contact
-
-For more information on AngularJS please check out http://angularjs.org/
-For more on Express and Jade, http://expressjs.com/ and http://jade-lang.com/ are
-your friends.
+### Install on RPI init.d
+* Create directory /opt/node/apps
+	sudo mkdir -p /opt/node/apps && sudo chown -R pi:pi /opt/node/apps
+* Clone git repository into /opt/node/apps
+	cd /opt/node/apps && git clone https://github.com/ryarnyah/nodejs-rpi-controller.git
+* Install dependencies
+	cd nodejs-rpi-controller && npm install && bower install
+* Create nodejs-rpi-controller startup script
+	nano /etc/init.d/nodejs-rpi-controller-startup.sh
+Paste this:
+ #!/bin/bash
+ 
+ NODE=/opt/node/bin/node
+ SERVER_JS_FILE=/opt/node/apps/nodejs-rpi-controller/app.js
+ USER=pi
+ OUT=/opt/node/apps/nodejs-rpi-controller/nodejs.log
+ 
+ case "$1" in
+ 
+ start)
+         echo "starting node: $NODE $SERVER_JS_FILE"
+         sudo -u $USER $NODE $SERVER_JS_FILE > $OUT 2>$OUT &
+         ;;
+ 
+ stop)
+         killall $NODE
+         ;;
+ 
+ *)
+         echo "usage: $0 (start|stop)"
+ esac
+ 
+ exit 0
 
 ## License
 MIT
