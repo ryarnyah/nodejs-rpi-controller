@@ -9,7 +9,8 @@ var info = require('../plugins/info'),
 	mounts = require('../plugins/mounts'),
 	network = require('../plugins/network'),
 	ps = require('../plugins/ps'),
-	shutdown = require('../plugins/shutdown')
+	shutdown = require('../plugins/shutdown'),
+	shutdown = require('../plugins/reboot')
 	;
 
 exports.name = function (req, res) {
