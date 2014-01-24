@@ -35,37 +35,47 @@ Runs like a typical express app:
 
 ### Install on RPI init.d
 * Create directory /opt/node/apps
-	sudo mkdir -p /opt/node/apps && sudo chown -R pi:pi /opt/node/apps
+
+    sudo mkdir -p /opt/node/apps && sudo chown -R pi:pi /opt/node/apps
+
 * Clone git repository into /opt/node/apps
-	cd /opt/node/apps && git clone https://github.com/ryarnyah/nodejs-rpi-controller.git
+
+    cd /opt/node/apps && git clone https://github.com/ryarnyah/nodejs-rpi-controller.git
+
 * Install dependencies
-	cd nodejs-rpi-controller && npm install && bower install
+
+    cd nodejs-rpi-controller && npm install && bower install
+
 * Create nodejs-rpi-controller startup script
-	nano /etc/init.d/nodejs-rpi-controller-startup.sh
+
+    nano /etc/init.d/nodejs-rpi-controller-startup.sh
+
 Paste this:
- #!/bin/bash
- 
- NODE=/opt/node/bin/node
- SERVER_JS_FILE=/opt/node/apps/nodejs-rpi-controller/app.js
- USER=pi
- OUT=/opt/node/apps/nodejs-rpi-controller/nodejs.log
- 
- case "$1" in
- 
- start)
+
+    #!/bin/bash
+    
+    NODE=/opt/node/bin/node
+    SERVER_JS_FILE=/opt/node/apps/nodejs-rpi-controller/app.js
+    USER=pi
+    OUT=/opt/node/apps/nodejs-rpi-controller/nodejs.log
+    
+    case "$1" in
+    
+    start)
          echo "starting node: $NODE $SERVER_JS_FILE"
          sudo -u $USER $NODE $SERVER_JS_FILE > $OUT 2>$OUT &
          ;;
- 
- stop)
+    
+    stop)
          killall $NODE
          ;;
- 
- *)
+    
+    *)
          echo "usage: $0 (start|stop)"
- esac
- 
- exit 0
+    esac
+    
+    exit 0
+
 
 ## License
 MIT
