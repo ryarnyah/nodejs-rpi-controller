@@ -10,7 +10,7 @@ var info = require('../plugins/info'),
 	network = require('../plugins/network'),
 	ps = require('../plugins/ps'),
 	shutdown = require('../plugins/shutdown'),
-	shutdown = require('../plugins/reboot')
+	reboot = require('../plugins/reboot')
 	;
 
 exports.name = function (req, res) {
@@ -58,6 +58,12 @@ exports.ps = function (req, res) {
 
 exports.shutdown = function (req, res) {
 	shutdown.get(function(data) {
+		res.json(data);
+	});
+}
+
+exports.reboot = function (req, res) {
+	reboot.get(function(data) {
 		res.json(data);
 	});
 }
