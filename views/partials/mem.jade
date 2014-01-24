@@ -1,0 +1,15 @@
+h1 Memory
+div.panel.panel-default
+	table.table
+		thead
+			tr
+				th Free
+				th Total
+				th Swap free
+		tbody
+			tr
+				th {{mem.memfree}}
+				th {{mem.memtotal}}
+				th {{mem.swapfree}}
+p
+	a.btn.btn-lg.btn-primary(ng-click="refresh()") Refresh

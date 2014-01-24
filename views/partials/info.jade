@@ -1,0 +1,21 @@
+h1 Infos
+div.panel.panel-default
+	table.table
+		thead
+			tr
+				th Hostname
+				th Type
+				th Platform
+				th Arch
+				th Release
+				th Time
+		tbody
+			tr
+				th {{info.hostname}}
+				th {{info.type}}
+				th {{info.platform}}
+				th {{info.arch}}
+				th {{info.release}}
+				th {{info.time}}
+p
+	a.btn.btn-lg.btn-primary(ng-click="refresh()") Refresh

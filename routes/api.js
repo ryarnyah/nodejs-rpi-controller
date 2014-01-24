@@ -8,7 +8,8 @@ var info = require('../plugins/info'),
 	mem = require('../plugins/mem'),
 	mounts = require('../plugins/mounts'),
 	network = require('../plugins/network'),
-	ps = require('../plugins/ps')
+	ps = require('../plugins/ps'),
+	shutdown = require('../plugins/shutdown')
 	;
 
 exports.name = function (req, res) {
@@ -50,6 +51,12 @@ exports.network = function (req, res) {
 
 exports.ps = function (req, res) {
 	ps.get(function(data) {
+		res.json(data);
+	});
+}
+
+exports.shutdown = function (req, res) {
+	shutdown.get(function(data) {
 		res.json(data);
 	});
 }

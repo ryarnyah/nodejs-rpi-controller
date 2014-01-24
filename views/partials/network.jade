@@ -1,0 +1,23 @@
+h1 Networks
+div.panel.panel-default
+	table.table
+		thead
+			tr
+				th Network
+				th Received Bytes
+				th Received Packets
+				th Received Errors
+				th Send Bytes
+				th Send Packets
+				th Send Errors
+		tbody
+			tr(ng-repeat="network in networks")
+				th {{network.network_interface}}
+				th {{network.received_bytes}}
+				th {{network.received_packets}}
+				th {{network.received_errors}}
+				th {{network.sent_bytes}}
+				th {{network.sent_packets}}
+				th {{network.sent_errors}}
+p
+	a.btn.btn-lg.btn-primary(ng-click="refresh()") Refresh

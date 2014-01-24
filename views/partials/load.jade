@@ -1,0 +1,15 @@
+h1 Load
+div.panel.panel-default
+	table.table
+		thead
+			tr
+				th 1 Min
+				th 5 Min
+				th 10 Min
+		tbody
+			tr
+				th {{load.1min}}
+				th {{load.5min}}
+				th {{load.10min}}
+p
+	a.btn.btn-lg.btn-primary(ng-click="refresh()") Refresh

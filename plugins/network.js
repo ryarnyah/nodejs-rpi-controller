@@ -18,7 +18,8 @@ exports.get = function(callback){
                 received_errors: aline[2],
                 sent_bytes: aline[8],
                 sent_packets: aline[9],
-                sent_errors: aline[10]
+                sent_errors: aline[10],
+				network_interface: key
             };
           }
 

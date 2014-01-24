@@ -1,0 +1,21 @@
+h1 Mounts
+div.panel.panel-default
+	table.table
+		thead
+			tr
+				th FileSystem
+				th Blocks
+				th Used
+				th Available
+				th Percent
+				th Mount
+		tbody
+			tr(ng-repeat="mount in mounts")
+				th {{mount.filesystem}}
+				th {{mount.blocks}}
+				th {{mount.used}}
+				th {{mount.available}}
+				th {{mount.percent}}
+				th {{mount.mount}}
+p
+	a.btn.btn-lg.btn-primary(ng-click="refresh()") Refresh

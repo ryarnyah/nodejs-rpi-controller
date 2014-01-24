@@ -1,27 +1,22 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-
-angular.module('myApp', [
+angular.module('nodejs-controller', [
   'ngRoute',
-  'myApp.controllers',
-  'myApp.filters',
-  'myApp.services',
-  'myApp.directives'
+  'nodejs-controller.filters',
+  'nodejs-controller.services',
+  'nodejs-controller.directives',
+  'nodejs-controller.controllers'
 ]).
-config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-  $routeProvider.
-    when('/', {
-      templateUrl: 'partials/partial1',
-      controller: 'MyCtrl1'
-    }).
-    when('/view2', {
-      templateUrl: 'partials/partial2',
-      controller: 'MyCtrl2'
-    }).
-    otherwise({
-      redirectTo: '/404'
-    });
-
-  $locationProvider.html5Mode(true);
+config(['$routeProvider', function($routeProvider) {
+  $routeProvider.when('/shutdown', {templateUrl:'partials/shutdown', controller: 'ShutdownCtrl'});
+  $routeProvider.when('/info', {templateUrl:'partials/info', controller: 'InfoCtrl'});
+  $routeProvider.when('/uptime', {templateUrl:'partials/uptime', controller: 'UptimeCtrl'});
+  $routeProvider.when('/load', {templateUrl:'partials/load', controller: 'LoadCtrl'});
+  $routeProvider.when('/mem', {templateUrl:'partials/mem', controller: 'MemCtrl'});
+  $routeProvider.when('/mounts', {templateUrl:'partials/mounts', controller: 'MountsCtrl'});
+  $routeProvider.when('/network', {templateUrl:'partials/network', controller: 'NetworkCtrl'});
+  $routeProvider.when('/ps', {templateUrl:'partials/ps', controller: 'PsCtrl'});
+  /* Default route */
+  $routeProvider.otherwise({redirectTo: '/shutdown'});
 }]);

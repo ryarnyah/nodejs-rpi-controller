@@ -54,6 +54,8 @@ app.get('/api/mem', api.mem);
 app.get('/api/mounts', api.mounts);
 app.get('/api/network', api.network);
 app.get('/api/ps', api.ps);
+app.get('/api/shutdown', api.shutdown);
+app.get('/api/reboot', api.reboot);
 
 // redirect all others to the index (HTML5 history)
 app.get('*', routes.index);
