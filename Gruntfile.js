@@ -3,13 +3,13 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     concat: {
-      options: {
-        separator: ';'
-      },
-      dist: {
-        src: ['src/js/**/*.js'],
-        dest: 'public/js/<%= pkg.name %>.js'
-      }
+		options: {
+			separator: ';'
+		},
+		dist: {
+			src: ['src/js/**/*.js'],
+			dest: 'public/js/<%= pkg.name %>.js'
+		}
     },
     uglify: {
       options: {
@@ -18,7 +18,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'public/js/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
+          'public/js/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>'],
         }
       }
     },
@@ -47,7 +47,11 @@ module.exports = function(grunt) {
 	  main: {
 		files: [
 		  // includes files within path
-		  {expand: true, cwd: 'src/web/', src: ['**'], dest: 'public/'}
+		  {expand: true, cwd: 'src/web/', src: ['*'], dest: 'public/'},
+		  {expand: true, cwd: 'src/web/js', src: ['*.js'], dest: 'public/js'},
+		  {expand: true, cwd: 'src/web/', src: ['**/*.css'], dest: 'public/'},
+		  {expand: true, cwd: 'src/web/', src: ['**/*.min.js'], dest: 'public/'},
+		  {expand: true, cwd: 'src/web/', src: ['**/*.map'], dest: 'public/'},
 		]
 	  }
 	},
@@ -77,17 +81,6 @@ module.exports = function(grunt) {
 		  spawn: false,
 		},
 	  },
-	},
-	'bower-install': {
-	  target: {
-		src: ['public/index.html'],
-		ignorePath: 'src/web/',
-		fileTypes: {
-			fileExtension: {
-				block: '*.min.js',
-			}
-		}
-	  }
 	}
   });
 
@@ -97,10 +90,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-bower-install');
   grunt.loadNpmTasks('grunt-bg-shell');
   grunt.loadNpmTasks('grunt-nodemon');
 
-  grunt.registerTask('default', ['copy', 'concat', 'uglify', 'jade', 'bower-install']);
+  grunt.registerTask('default', ['copy', 'concat', 'uglify', 'jade']);
   grunt.registerTask('run', ['clean', 'copy', 'concat', 'uglify', 'jade', 'bgShell', 'nodemon']);
 };
