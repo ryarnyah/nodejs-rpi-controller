@@ -54,8 +54,29 @@ module.exports = function(grunt) {
 	clean: ["public"],
 	nodemon: {
 	  dev: {
-		script: 'app.js'
+		script: 'app.js',
+		options: {
+			ext: 'js,json',
+			ignore: ['node_modules/**', 'public/**']
+		}
 	  }
+	},
+	bgShell: {
+      _defaults: {
+        bg: true
+      },
+      watch: {
+        cmd: 'grunt watch'
+      }
+    },
+	watch: {
+	  scripts: {
+		files: ['src/**/*.jade'],
+		tasks: ['default'],
+		options: {
+		  spawn: false,
+		},
+	  },
 	}
   });
 
@@ -64,8 +85,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-bg-shell');
   grunt.loadNpmTasks('grunt-nodemon');
 
   grunt.registerTask('default', ['copy', 'concat', 'uglify', 'jade']);
-  grunt.registerTask('run', ['clean', 'copy', 'concat', 'uglify', 'jade', 'nodemon']);
+  grunt.registerTask('run', ['clean', 'copy', 'concat', 'uglify', 'jade', 'bgShell', 'nodemon']);
 };

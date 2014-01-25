@@ -13,6 +13,8 @@
 	"grunt-contrib-jade": "latest",
 	"grunt-contrib-copy": "latest",
 	"grunt-contrib-clean": "latest",
+	"grunt-contrib-watch": "latest",
+	"grunt-bg-shell": "latest",
 	"grunt-nodemon": "latest"
   },
   "scripts": {
