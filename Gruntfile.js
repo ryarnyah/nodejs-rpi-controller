@@ -61,7 +61,7 @@ module.exports = function(grunt) {
 		script: 'app.js',
 		options: {
 			ext: 'js,json',
-			ignore: ['node_modules/**', 'public/**']
+			ignore: ['node_modules/**', 'public/**', 'src/js/**']
 		}
 	  }
 	},
