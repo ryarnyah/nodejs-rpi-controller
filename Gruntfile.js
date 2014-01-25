@@ -77,6 +77,12 @@ module.exports = function(grunt) {
 		  spawn: false,
 		},
 	  },
+	},
+	'bower-install': {
+	  target: {
+		src: ['public/index.html'],
+		ignorePath: 'src/web/',
+	  }
 	}
   });
 
@@ -86,9 +92,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-bower-install');
   grunt.loadNpmTasks('grunt-bg-shell');
   grunt.loadNpmTasks('grunt-nodemon');
 
-  grunt.registerTask('default', ['copy', 'concat', 'uglify', 'jade']);
+  grunt.registerTask('default', ['copy', 'concat', 'uglify', 'jade', 'bower-install']);
   grunt.registerTask('run', ['clean', 'copy', 'concat', 'uglify', 'jade', 'bgShell', 'nodemon']);
 };
