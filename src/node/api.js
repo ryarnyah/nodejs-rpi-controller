@@ -2,15 +2,15 @@
  * Serve JSON to our AngularJS client
  */
  
-var info = require('../plugins/info'),
-	uptime = require('../plugins/uptime'),
-	load = require('../plugins/load'),
-	mem = require('../plugins/mem'),
-	mounts = require('../plugins/mounts'),
-	network = require('../plugins/network'),
-	ps = require('../plugins/ps'),
-	shutdown = require('../plugins/shutdown'),
-	reboot = require('../plugins/reboot')
+var info = require('./plugins/info'),
+	uptime = require('./plugins/uptime'),
+	load = require('./plugins/load'),
+	mem = require('./plugins/mem'),
+	mounts = require('./plugins/mounts'),
+	network = require('./plugins/network'),
+	ps = require('./plugins/ps'),
+	shutdown = require('./plugins/shutdown'),
+	reboot = require('./plugins/reboot')
 	;
 
 exports.name = function (req, res) {

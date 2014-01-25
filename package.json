@@ -4,6 +4,17 @@
   "private": true,
   "dependencies": {
     "express": "latest",
-    "jade": "latest"
+    "jade": "latest",
+	"bower": "latest",
+	"grunt": "latest",
+	"grunt-contrib-uglify": "latest",
+	"grunt-contrib-concat": "latest",
+	"grunt-contrib-jade": "latest",
+	"grunt-contrib-copy": "latest",
+	"grunt-contrib-clean": "latest"
+  },
+  "scripts": {
+    "preinstall" : "node_modules/.bin/bower install",
+	"postinstall": "node_modules/.bin/grunt"
   }
 }

@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "homepage": "none",
   "description": "NodeJs Raspberry Controller",
-  "main": "public/js/app.js",
-  "directory": "public/js/lib",
+  "main": "src/js/app.js",
+  "directory": "src/web/js/lib/lib",
   "dependencies": {
     "angular":"latest",
 	"angular-route":"latest",
@@ -23,7 +23,7 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "public/js/lib",
+    "src/web/js/lib/lib",
     "test",
     "tests"
   ]
