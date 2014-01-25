@@ -66,5 +66,7 @@ Paste this:
     exit 0
 
 Start nodejs server `sudo /etc/init.d/nodejs-rpi-controller-startup.sh start`
+
+Go to `http://raspberrypi.local:3000/`
 ## License
 MIT
