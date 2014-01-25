@@ -65,14 +65,6 @@ module.exports = function(grunt) {
 		}
 	  }
 	},
-	bgShell: {
-      _defaults: {
-        bg: true
-      },
-      watch: {
-        cmd: 'grunt watch'
-      }
-    },
 	watch: {
 	  scripts: {
 		files: ['src/jade/**/*.jade', 'src/js/**/*.js'],
@@ -121,10 +113,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-manifest');
-  grunt.loadNpmTasks('grunt-bg-shell');
   grunt.loadNpmTasks('grunt-nodemon');
 
   grunt.registerTask('default', ['copy', 'concat', 'uglify', 'jade']);
   grunt.registerTask('dist', ['copy', 'concat', 'uglify', 'jade', 'manifest', 'compress']);
-  grunt.registerTask('run', ['clean', 'copy', 'concat', 'uglify', 'jade', 'bgShell', 'nodemon']);
+  grunt.registerTask('run', ['clean', 'copy', 'concat', 'uglify', 'jade', 'nodemon']);
 };

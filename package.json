@@ -17,7 +17,6 @@
 	"grunt-contrib-compress": "latest",
 	"grunt-bower-install": "latest",
 	"grunt-manifest": "latest",
-	"grunt-bg-shell": "latest",
 	"grunt-nodemon": "latest"
   },
   "scripts": {
