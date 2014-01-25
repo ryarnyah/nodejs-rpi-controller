@@ -23,9 +23,8 @@ NodeJS RPI Controller have the following API:
 Pre-requisite:
 * Node JS
 * NPM
-* Bower (npm install -g bower)
 
-Clone the nodejs-rpi-controller repository, run `npm install && bower install` to grab the dependencies!
+Clone the nodejs-rpi-controller repository, run `npm install` to grab the dependencies!
 
 ### Running the app
 
@@ -36,7 +35,7 @@ Runs like a typical express app:
 ### Install on RPI init.d
 * Create directory /opt/node/apps `sudo mkdir -p /opt/node/apps && sudo chown -R pi:pi /opt/node/apps`
 * Clone git repository into /opt/node/apps `cd /opt/node/apps && git clone https://github.com/ryarnyah/nodejs-rpi-controller.git`
-* Install dependencies `cd nodejs-rpi-controller && npm install && bower install`
+* Install dependencies `cd nodejs-rpi-controller && npm install`
 * Create nodejs-rpi-controller startup script `sudo nano /etc/init.d/nodejs-rpi-controller-startup.sh`
 
 Paste this:
