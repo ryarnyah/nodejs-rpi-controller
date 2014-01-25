@@ -11,6 +11,8 @@ partials/mem.html
 partials/mounts.html
 partials/network.html
 partials/ps.html
+index.html
+layout.html
 js/lib/angular/angular.min.js
 js/lib/bootstrap/dist/css/bootstrap.min.css
 js/lib/angular-route/angular-route.min.js
