@@ -4,7 +4,6 @@
  */
 
 var express = require('express'),
-  routes = require('./routes'),
   api = require('./src/node/api'),
   http = require('http'),
   path = require('path');
@@ -54,7 +53,7 @@ app.get('/api/shutdown', api.shutdown);
 app.get('/api/reboot', api.reboot);
 
 // redirect all others to the index (HTML5 history)
-app.get('*', routes.index);
+app.get('*', api.info);
 
 
 /**
