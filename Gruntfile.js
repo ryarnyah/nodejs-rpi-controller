@@ -71,7 +71,7 @@ module.exports = function(grunt) {
     },
 	watch: {
 	  scripts: {
-		files: ['src/**/*.jade'],
+		files: ['src/jade/**/*.jade', 'src/js/**/*.js'],
 		tasks: ['default'],
 		options: {
 		  spawn: false,
