@@ -1,21 +1,24 @@
 h1 Infos
-div.panel.panel-default
+div.panel.panel-default.table-responsive
 	table.table
-		thead
-			tr
-				th Hostname
-				th Type
-				th Platform
-				th Arch
-				th Release
-				th Time
 		tbody
 			tr
+				th Hostname
 				th {{info.hostname}}
+			tr
+				th Type
 				th {{info.type}}
+			tr
+				th Platform
 				th {{info.platform}}
+			tr
+				th Arch
 				th {{info.arch}}
+			tr
+				th Release
 				th {{info.release}}
-				th {{info.time}}
+			tr
+				th Time
+				th {{info.time | date:'dd/MM/yyyy H:mm:ss'}}
 p
 	a.btn.btn-lg.btn-primary(ng-click="refresh()") Refresh

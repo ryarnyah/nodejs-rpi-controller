@@ -33,9 +33,7 @@ exports.load = function (req, res) {
 }
 
 exports.mem = function (req, res) {
-	mem.get(function(data) {
-		res.json(data);
-	});
+	res.json(mem.get());
 }
 
 exports.mounts = function (req, res) {
@@ -45,9 +43,7 @@ exports.mounts = function (req, res) {
 }
 
 exports.network = function (req, res) {
-	network.get(function(data) {
-		res.json(data);
-	});
+	res.json(network.get());
 }
 
 exports.ps = function (req, res) {

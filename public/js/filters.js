@@ -21,3 +21,15 @@ filters.filter('getByProperty', function() {
         return null;
     }
 });
+
+filters.filter('megaOctet', function() {
+    return function(text) {
+        return text / (1024*1024*1024);
+    }
+});
+
+filters.filter('secondToMilliSecond', ['$filter', function() {
+    return function(text) {
+        return text * 1000;
+    }
+}]);

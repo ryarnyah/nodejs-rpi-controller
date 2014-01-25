@@ -1,11 +1,9 @@
 h1 Uptime
-div.panel.panel-default
+div.panel.panel-default.table-responsive
 	table.table
-		thead
-			tr
-				th Uptime
 		tbody
 			tr
-				th {{uptime.up}}
+				th Uptime
+				th {{uptime.up | secondToMilliSecond | date : 'HH:mm:ss'}}
 p
 	a.btn.btn-lg.btn-primary(ng-click="refresh()") Refresh

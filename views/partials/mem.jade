@@ -1,15 +1,15 @@
 h1 Memory
-div.panel.panel-default
+div.panel.panel-default.table-responsive
 	table.table
 		thead
 			tr
-				th Free
-				th Total
-				th Swap free
+				th Free (Gio)
+				th Total (Gio)
+				th Used (Gio)
 		tbody
 			tr
-				th {{mem.memfree}}
-				th {{mem.memtotal}}
-				th {{mem.swapfree}}
+				th {{mem.memfree | megaOctet | number}}
+				th {{mem.memtotal | megaOctet | number}}
+				th {{(mem.memtotal - mem.memfree) | megaOctet | number}}
 p
 	a.btn.btn-lg.btn-primary(ng-click="refresh()") Refresh
