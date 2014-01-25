@@ -51,7 +51,12 @@ module.exports = function(grunt) {
 		]
 	  }
 	},
-	clean: ["public"]
+	clean: ["public"],
+	nodemon: {
+	  dev: {
+		script: 'app.js'
+	  }
+	}
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -59,7 +64,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-nodemon');
 
   grunt.registerTask('default', ['copy', 'concat', 'uglify', 'jade']);
-
+  grunt.registerTask('run', ['clean', 'copy', 'concat', 'uglify', 'jade', 'nodemon']);
 };

@@ -11,7 +11,8 @@
 	"grunt-contrib-concat": "latest",
 	"grunt-contrib-jade": "latest",
 	"grunt-contrib-copy": "latest",
-	"grunt-contrib-clean": "latest"
+	"grunt-contrib-clean": "latest",
+	"grunt-nodemon": "latest"
   },
   "scripts": {
 	"postinstall": "node_modules/.bin/bower install; node_modules/.bin/grunt"
