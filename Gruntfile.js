@@ -82,6 +82,11 @@ module.exports = function(grunt) {
 	  target: {
 		src: ['public/index.html'],
 		ignorePath: 'src/web/',
+		fileTypes: {
+			fileExtension: {
+				block: '*.min.js',
+			}
+		}
 	  }
 	}
   });
