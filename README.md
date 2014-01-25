@@ -23,6 +23,7 @@ NodeJS RPI Controller have the following API:
 Pre-requisite:
 * Node JS
 * NPM
+* Grunt (npm install -g grunt)
 
 Clone the nodejs-rpi-controller repository, run `npm install` to grab the dependencies!
 

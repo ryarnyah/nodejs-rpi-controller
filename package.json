@@ -6,6 +6,7 @@
     "express": "latest",
     "jade": "latest",
 	"bower": "latest",
+	"grunt-cli": "latest",
 	"grunt": "latest",
 	"grunt-contrib-uglify": "latest",
 	"grunt-contrib-concat": "latest",
