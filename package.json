@@ -14,12 +14,14 @@
 	"grunt-contrib-copy": "latest",
 	"grunt-contrib-clean": "latest",
 	"grunt-contrib-watch": "latest",
+	"grunt-contrib-compress": "latest",
 	"grunt-bower-install": "latest",
+	"grunt-manifest": "latest",
 	"grunt-bg-shell": "latest",
 	"grunt-nodemon": "latest"
   },
   "scripts": {
 	"install": "node_modules/.bin/bower install",
-	"postinstall": "node_modules/.bin/grunt"
+	"postinstall": "node_modules/.bin/grunt dist"
   }
 }

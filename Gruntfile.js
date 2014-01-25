@@ -55,7 +55,7 @@ module.exports = function(grunt) {
 		]
 	  }
 	},
-	clean: ["public"],
+	clean: ["public", "*.tar.gz"],
 	nodemon: {
 	  dev: {
 		script: 'app.js',
@@ -81,6 +81,35 @@ module.exports = function(grunt) {
 		  spawn: false,
 		},
 	  },
+	},
+	manifest: {
+		generate: {
+		  options: {
+			basePath: 'public',
+			network: ['http://*', 'https://*'],
+			preferOnline: true,
+			verbose: true,
+			timestamp: true,
+			hash: true,
+			master: ['index.html']
+		  },
+		  src: [
+			'**/*.html',
+			'**/*.min.js',
+			'**/*.css'
+		  ],
+		  dest: 'public/cache-manifest.manifest'
+		}
+	},
+	compress: {
+	  main: {
+		options: {
+			archive: '<%= pkg.name %>.tar.gz'
+		},
+		files: [
+		  {src: ['public/**', 'app.js', 'src/node/**']}
+		]
+	  }
 	}
   });
 
@@ -90,9 +119,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-compress');
+  grunt.loadNpmTasks('grunt-manifest');
   grunt.loadNpmTasks('grunt-bg-shell');
   grunt.loadNpmTasks('grunt-nodemon');
 
   grunt.registerTask('default', ['copy', 'concat', 'uglify', 'jade']);
+  grunt.registerTask('dist', ['copy', 'concat', 'uglify', 'jade', 'manifest', 'compress']);
   grunt.registerTask('run', ['clean', 'copy', 'concat', 'uglify', 'jade', 'bgShell', 'nodemon']);
 };
