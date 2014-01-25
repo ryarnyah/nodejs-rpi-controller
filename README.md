@@ -65,7 +65,7 @@ Paste this:
     
     exit 0
 
-Start nodejs server `sudo chmod +x /etc/init.d/nodejs-rpi-controller-startup.sh && sudo /etc/init.d/nodejs-rpi-controller-startup.sh start`
+Start nodejs server `sudo chmod +x /etc/init.d/nodejs-rpi-controller-startup.sh && sudo /etc/init.d/nodejs-rpi-controller-startup.sh start && sudo update-rc.d nodejs-rpi-controller-startup.sh defaults`
 
 Go to `http://raspberrypi.local:3000/`
 ## License
