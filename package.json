@@ -15,6 +15,7 @@
 	"grunt-nodemon": "latest"
   },
   "scripts": {
-	"postinstall": "node_modules/.bin/bower install; node_modules/.bin/grunt"
+	"install": "node_modules/.bin/bower install",
+	"postinstall": "node_modules/.bin/grunt"
   }
 }
