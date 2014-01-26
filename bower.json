@@ -9,8 +9,7 @@
     "angular":"latest",
 	"angular-route":"latest",
 	"angular-resource":"latest",
-    "bootstrap":"latest",
-	"zef-angularjs-i18n":"latest"
+    "bootstrap":"latest"
   },
   "keywords": [
     "nodejs",
