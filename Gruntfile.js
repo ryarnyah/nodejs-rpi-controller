@@ -90,7 +90,8 @@ module.exports = function(grunt) {
 		  src: [
 			'**/*.html',
 			'**/*.min.js',
-			'**/*.css'
+			'**/*.css',
+			'**/*.json'
 		  ],
 		  dest: 'public/cache-manifest.manifest'
 		}
