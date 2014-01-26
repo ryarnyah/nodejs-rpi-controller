@@ -33,7 +33,14 @@ services.factory('LocalisationFactory', ['$http', '$window',
 					}).
 					error(function(data, status, headers, config) {
 						if(localise.defaultLanguage != language)
-							localise.load(defaultLanguage, callback);
+						{
+							$http({method: 'GET', url: '/i18n/' + localise.defaultLanguage + '.json'}).
+								success(function(data, status, headers, config) {
+									localise.currentLanguage = data;
+									localise.languageLoaded = true;
+									callback();
+								});
+						}
 					});
 			},
 			translate : function(name, callback) {
