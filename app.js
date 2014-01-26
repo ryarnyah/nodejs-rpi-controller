@@ -53,7 +53,9 @@ app.get('/api/shutdown', api.shutdown);
 app.get('/api/reboot', api.reboot);
 
 // redirect all others to the index (HTML5 history)
-app.get('*', api.info);
+app.get('*', function(req, res){
+  res.status(404).send('Not found!');
+});
 
 
 /**

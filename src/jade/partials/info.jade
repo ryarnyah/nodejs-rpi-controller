@@ -3,22 +3,22 @@ div.panel.panel-default.table-responsive
 	table.table
 		tbody
 			tr
-				th Hostname
+				th(i18n="label.info.hostname")
 				th {{info.hostname}}
 			tr
-				th Type
+				th(i18n="label.info.type")
 				th {{info.type}}
 			tr
-				th Platform
+				th(i18n="label.info.platform")
 				th {{info.platform}}
 			tr
-				th Arch
+				th(i18n="label.info.arch")
 				th {{info.arch}}
 			tr
-				th Release
+				th(i18n="label.info.release")
 				th {{info.release}}
 			tr
-				th Time
+				th(i18n="label.info.time")
 				th {{info.time | date:'dd/MM/yyyy H:mm:ss'}}
 p
 	a.btn.btn-lg.btn-primary(ng-click="refresh()") Refresh

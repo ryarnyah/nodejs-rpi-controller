@@ -3,9 +3,9 @@ div.panel.panel-default.table-responsive
 	table.table
 		thead
 			tr
-				th Free (Gio)
-				th Total (Gio)
-				th Used (Gio)
+				th(i18n="label.mem.free")
+				th(i18n="label.mem.total")
+				th(i18n="label.mem.used")
 		tbody
 			tr
 				th {{mem.memfree | megaOctet | number}}

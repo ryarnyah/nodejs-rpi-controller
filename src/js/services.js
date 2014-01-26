@@ -16,3 +16,36 @@ services.factory('ApiFactory', function ($resource) {
 		reboot: { method: 'GET', params: {action: 'reboot'} }
 	})
 });
+
+services.factory('LocalisationFactory', ['$http', '$window',
+	function ($http, $window) {
+		var localise = {
+			defaultLanguage: 'en',
+			language : $window.navigator.userLanguage || $window.navigator.language,
+			currentLanguage : undefined,
+			languageLoaded : false,
+			load: function(language, callback) {
+				$http({method: 'GET', url: '/i18n/' + language + '.json'}).
+					success(function(data, status, headers, config) {
+						localise.currentLanguage = data;
+						localise.languageLoaded = true;
+						callback();
+					}).
+					error(function(data, status, headers, config) {
+						if(localise.defaultLanguage != language)
+							localise.load(defaultLanguage, callback);
+					});
+			},
+			translate : function(name, callback) {
+				if(localise.languageLoaded) {
+					callback(localise.currentLanguage[name]);
+				} else {
+					localise.currentLanguage = localise.load(localise.language, function(){
+						callback(localise.currentLanguage[name]);
+					});
+				}
+			}
+		}
+		return localise;
+	}
+]);

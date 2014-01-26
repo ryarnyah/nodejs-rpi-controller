@@ -3,10 +3,10 @@ div.panel.panel-default.table-responsive
 	table.table
 		thead
 			tr
-				th Network
-				th Address
-				th Family
-				th Internal
+				th(i18n="label.network")
+				th(i18n="label.network.address")
+				th(i18n="label.network.family")
+				th(i18n="label.network.internal")
 		tbody
 			tr(ng-repeat="(network, networkInformations) in networks")
 				th {{network}}

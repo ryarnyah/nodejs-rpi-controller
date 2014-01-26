@@ -52,6 +52,9 @@ module.exports = function(grunt) {
 		  {expand: true, cwd: 'src/web/', src: ['**/*.css'], dest: 'public/'},
 		  {expand: true, cwd: 'src/web/', src: ['**/*.min.js'], dest: 'public/'},
 		  {expand: true, cwd: 'src/web/', src: ['**/*.map'], dest: 'public/'},
+		  // i18n
+		  {expand: true, cwd: 'src/web/js/lib/zef-angularjs-i18n', src: ['*.js'], dest: 'public/js/lib/zef-angularjs-i18n'},
+		  {expand: true, cwd: 'src/i18n', src: ['**'], dest: 'public/i18n'},
 		]
 	  }
 	},
@@ -115,7 +118,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-manifest');
   grunt.loadNpmTasks('grunt-nodemon');
 
-  grunt.registerTask('default', ['copy', 'concat', 'uglify', 'jade']);
-  grunt.registerTask('dist', ['copy', 'concat', 'uglify', 'jade', 'manifest', 'compress']);
-  grunt.registerTask('run', ['clean', 'copy', 'concat', 'uglify', 'jade', 'nodemon']);
+  grunt.registerTask('default', ['copy', 'concat', 'jade']);
+  grunt.registerTask('dist', ['default', 'uglify', 'manifest', 'compress']);
+  grunt.registerTask('run', ['clean', 'default', 'uglify', 'nodemon']);
 };

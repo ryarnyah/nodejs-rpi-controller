@@ -8,23 +8,23 @@ block body
 				span.icon-bar
 				span.icon-bar
 				span.icon-bar
-			a.navbar-brand(href="#") RPI Controller
+			a.navbar-brand(href="#", i18n="app.name")
 		div.navbar-collapse.collapse
 			ul.nav.navbar-nav
 				li
-					a(ng-href="#/shutdown") Shutdown/Reboot
+					a(ng-href="#/shutdown", i18n="label.shutdown")
 				li
-					a(ng-href="#/info") Info
+					a(ng-href="#/info", i18n="label.info")
 				li
-					a(ng-href="#/uptime") Uptime
+					a(ng-href="#/uptime", i18n="label.uptime")
 				li
-					a(ng-href="#/load") Load
+					a(ng-href="#/load", i18n="label.load")
 				li
-					a(ng-href="#/mem") Memory
+					a(ng-href="#/mem", i18n="label.memory")
 				li
-					a(ng-href="#/mounts") Mounts
+					a(ng-href="#/mounts", i18n="label.mounts")
 				li
-					a(ng-href="#/network") Network
+					a(ng-href="#/network", i18n="label.network")
 	div.container
 		div.jumbotron(ng-view)
 	script(src='js/lib/angular/angular.min.js')
@@ -32,4 +32,4 @@ block body
 	script(src='js/lib/angular-resource/angular-resource.min.js')
 	script(src='js/lib/jquery/jquery.min.js')
 	script(src='js/lib/bootstrap/dist/js/bootstrap.min.js')
-	script(src='js/nodejs-controller.min.js')
+	script(src='js/nodejs-rpi-controller.js')

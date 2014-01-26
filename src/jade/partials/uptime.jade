@@ -3,7 +3,7 @@ div.panel.panel-default.table-responsive
 	table.table
 		tbody
 			tr
-				th Uptime
+				th(i18n="label.uptime")
 				th {{uptime.up | secondToMilliSecond | date : 'mm:ss'}}
 p
 	a.btn.btn-lg.btn-primary(ng-click="refresh()") Refresh

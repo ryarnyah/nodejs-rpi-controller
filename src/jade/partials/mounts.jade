@@ -3,12 +3,12 @@ div.panel.panel-default.table-responsive
 	table.table
 		thead
 			tr
-				th FileSystem
-				th Blocks
-				th Used
-				th Available
-				th Percent
-				th Mount
+				th(i18n="label.mounts.filesystem")
+				th(i18n="label.mounts.blocks")
+				th(i18n="label.mounts.used")
+				th(i18n="label.mounts.available")
+				th(i18n="label.mounts.percent")
+				th(i18n="label.mounts.mount")
 		tbody
 			tr(ng-repeat="mount in mounts")
 				th {{mount.filesystem}}
