@@ -80,8 +80,7 @@ module.exports = function(grunt) {
 		generate: {
 		  options: {
 			basePath: 'public',
-			network: ['http://*', 'https://*'],
-			preferOnline: true,
+			network: ['*'],
 			verbose: true,
 			timestamp: true,
 			hash: true,
@@ -91,7 +90,8 @@ module.exports = function(grunt) {
 			'**/*.html',
 			'**/*.min.js',
 			'**/*.css',
-			'**/*.json'
+			'**/*.json',
+			'**/*.map'
 		  ],
 		  dest: 'public/cache-manifest.manifest'
 		}
