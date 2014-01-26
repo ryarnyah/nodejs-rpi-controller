@@ -53,7 +53,6 @@ module.exports = function(grunt) {
 		  {expand: true, cwd: 'src/web/', src: ['**/*.min.js'], dest: 'public/'},
 		  {expand: true, cwd: 'src/web/', src: ['**/*.map'], dest: 'public/'},
 		  // i18n
-		  {expand: true, cwd: 'src/web/js/lib/zef-angularjs-i18n', src: ['*.js'], dest: 'public/js/lib/zef-angularjs-i18n'},
 		  {expand: true, cwd: 'src/i18n', src: ['**'], dest: 'public/i18n'},
 		]
 	  }
