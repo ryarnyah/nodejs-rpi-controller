@@ -34,11 +34,13 @@ Pre-requisite:
 
 Clone the nodejs-rpi-controller repository.
 Create a file secret.json inside nodejs-rpi-controller:
+
     {
         "host": "<Hostname>",
         "username": "<Pi user>",
         "password": "<Pi user password>"
     }
+
 And run `npm install && grunt deploy` to install minimal version of the application!
 
 ### Running the app
