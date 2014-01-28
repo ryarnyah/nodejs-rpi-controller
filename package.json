@@ -3,8 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "express": "latest",
-    "jade": "latest",
+    "express": "latest"
+  },
+  "devDependencies": {
+	"jade": "latest",
 	"bower": "latest",
 	"grunt-cli": "latest",
 	"grunt": "latest",
@@ -17,7 +19,8 @@
 	"grunt-contrib-compress": "latest",
 	"grunt-bower-install": "latest",
 	"grunt-manifest": "latest",
-	"grunt-nodemon": "latest"
+	"grunt-nodemon": "latest",
+	"grunt-ssh": "latest"
   },
   "scripts": {
 	"install": "node_modules/.bin/bower install",

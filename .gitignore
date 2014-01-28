@@ -1,3 +1,5 @@
 node_modules
 public
 src/web/js/lib
+secret.json
+*.tar.gz

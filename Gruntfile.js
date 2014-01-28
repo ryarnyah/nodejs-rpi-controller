@@ -102,8 +102,73 @@ module.exports = function(grunt) {
 			archive: '<%= pkg.name %>.tar.gz'
 		},
 		files: [
-		  {src: ['public/**', 'app.js', 'src/node/**']}
+		  {src: ['public/**', 'app.js', 'src/node/**', 'package.json', 'src/install/**']}
 		]
+	  }
+	},
+	secret: grunt.file.readJSON('secret.json'),
+	sftp: {
+	  deploy: {
+		files: {
+		  "./": "<%= pkg.name %>.tar.gz"
+		},
+		options: {
+		  path: '/opt/node/apps/<%= pkg.name %>',
+		  host: '<%= secret.host %>',
+		  username: '<%= secret.username %>',
+		  password: '<%= secret.password %>',
+		  showProgress: true
+		}
+	  }
+	},
+	sshexec: {
+	  mkdir: {
+		command: ['mkdir -p /opt/node/apps/<%= pkg.name %>'],
+		options: {
+		  host: '<%= secret.host %>',
+		  username: '<%= secret.username %>',
+		  password: '<%= secret.password %>'
+		}
+	  },
+	  deploy: {
+		command: ['cd /opt/node/apps/<%= pkg.name %> && tar xzf <%= pkg.name %>.tar.gz && /opt/node/bin/npm install --ignore-scripts --production'],
+		options: {
+		  host: '<%= secret.host %>',
+		  username: '<%= secret.username %>',
+		  password: '<%= secret.password %>'
+		}
+	  },
+	  stop: {
+		command: ['sudo /etc/init.d/<%= pkg.name %>-startup.sh stop'],
+		options: {
+		  host: '<%= secret.host %>',
+		  username: '<%= secret.username %>',
+		  password: '<%= secret.password %>'
+		}
+	  },
+	  start: {
+		command: ['sudo nohup /etc/init.d/<%= pkg.name %>-startup.sh start'],
+		options: {
+		  host: '<%= secret.host %>',
+		  username: '<%= secret.username %>',
+		  password: '<%= secret.password %>'
+		}
+	  },
+	  clean: {
+		command: ['rm /opt/node/apps/<%= pkg.name %>/<%= pkg.name %>.tar.gz'],
+		options: {
+		  host: '<%= secret.host %>',
+		  username: '<%= secret.username %>',
+		  password: '<%= secret.password %>'
+		}
+	  },
+	  install: {
+		command: ['cd /opt/node/apps/<%= pkg.name %>/src/install && sudo mv <%= pkg.name %>-startup.sh /etc/init.d/ && sudo update-rc.d <%= pkg.name %>-startup.sh defaults && sudo chmod +x /etc/init.d/<%= pkg.name %>-startup.sh '],
+		options: {
+		  host: '<%= secret.host %>',
+		  username: '<%= secret.username %>',
+		  password: '<%= secret.password %>'
+		}
 	  }
 	}
   });
@@ -117,8 +182,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-manifest');
   grunt.loadNpmTasks('grunt-nodemon');
+  grunt.loadNpmTasks('grunt-ssh');
 
   grunt.registerTask('default', ['copy', 'concat', 'jade']);
   grunt.registerTask('dist', ['default', 'uglify', 'manifest', 'compress']);
   grunt.registerTask('run', ['clean', 'default', 'uglify', 'nodemon']);
+  grunt.registerTask('deploy', ['dist', 'sshexec:stop', 'sshexec:mkdir', 'sftp', 'sshexec:deploy', 'sshexec:install', 'sshexec:start', 'sshexec:clean']);
 };
