@@ -23,9 +23,23 @@ NodeJS RPI Controller have the following API:
 Pre-requisite:
 * Node JS
 * NPM
-* Grunt (npm install -g grunt)
 
 Clone the nodejs-rpi-controller repository, run `npm install` to grab the dependencies!
+
+### Install to RPI
+
+Pre-requisite:
+* Node JS
+* NPM
+
+Clone the nodejs-rpi-controller repository.
+Create a file secret.json inside nodejs-rpi-controller:
+`{
+	"host": "<Hostname>",
+	"username": "<Pi user>",
+	"password": "<Pi user password>"
+}`
+And run `npm install && grunt deploy` to install minimal version of the application!
 
 ### Running the app
 
